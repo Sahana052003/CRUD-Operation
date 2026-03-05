@@ -48,6 +48,12 @@ public class NaukriServiceImpl implements NaukriService {
                     return "Register Success";
                 }
                 return "Failed To Register";
+            }else {
+                boolean updatedNaukriData = updateNaukriData(dto);
+                if (updatedNaukriData){
+                    return "UpdatedData Successfully";
+                }
+                return "Update Failed";
             }
         }
         return "Data already Exists";
@@ -108,4 +114,12 @@ public class NaukriServiceImpl implements NaukriService {
             }
             return null;
         }
+
+    @Override
+    public boolean updateNaukriData(NaukriDTO naukriDTO) {
+        NaukriEntity entity = new NaukriEntity();
+        BeanUtils.copyProperties(naukriDTO, entity);
+
+        return naukriRepository.updateNaukriDetails(entity);
     }
+}

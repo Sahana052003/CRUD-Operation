@@ -105,4 +105,21 @@ public class NaukriRepositoryImpl implements NaukriRepository{
             entityManager.close();
         }
     }
+
+    @Override
+    public boolean updateNaukriDetails(NaukriEntity naukriEntity) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try{
+            EntityTransaction transaction = entityManager.getTransaction();
+            transaction.begin();
+            entityManager.merge(naukriEntity);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            System.out.println("Updated Data is : " + e.getMessage());
+            return false;
+        }finally {
+            entityManager.close();
+        }
+    }
 }

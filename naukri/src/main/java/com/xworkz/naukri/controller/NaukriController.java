@@ -57,6 +57,20 @@ public class NaukriController {
         }
         return "nakriDetails";
     }
+
+
+    @PostMapping("update")
+    public String updateData(NaukriDTO naukriDTO,Model model){
+        boolean updated = naukriService.updateNaukriData(naukriDTO);
+        List<NaukriDTO> dto = naukriService.getDTO();
+        if (updated) {
+            model.addAttribute("message", dto);
+            return "naukri";
+        } else {
+            model.addAttribute("errormsg", dto);
+        }
+        return "naukri";
+    }
 }
 
 

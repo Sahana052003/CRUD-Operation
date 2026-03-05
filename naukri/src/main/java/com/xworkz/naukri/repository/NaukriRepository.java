@@ -10,4 +10,6 @@ public interface NaukriRepository {
     NaukriEntity getDetailsBasedOnEmail(String email);
     NaukriEntity getDetailsBasedOnMobileNumber(Long mobileNumber);
     NaukriEntity getDetailsBasedOnId(int id);
+
+    boolean updateNaukriDetails(NaukriEntity naukriEntity);
 }
