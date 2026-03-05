@@ -15,21 +15,25 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class BigBasketController {
-    public BigBasketController(){
+    public BigBasketController() {
         System.out.println("BigBasketController is Called");
     }
+
     @Autowired
     BigBasketService bigBasketService;
 
 
     @PostMapping("register")
-    public String loginPage(BigBasketDTO bigBasketDTO,Model model){
+    public String loginPage(BigBasketDTO bigBasketDTO, Model model) {
         System.out.println("User entered data " + bigBasketDTO);
         String checkUserData = bigBasketService.checkUserData(bigBasketDTO);
-        if(checkUserData.equalsIgnoreCase("Register Success")){
+        if (checkUserData.equalsIgnoreCase("Register Success")) {
             model.addAttribute("message", checkUserData);
             return "index";
         } else if (checkUserData.equalsIgnoreCase("Failed To Register")) {
+            model.addAttribute("errormsg", checkUserData);
+            return "index";
+        } else if (checkUserData.equalsIgnoreCase("Email or Phone already exists")) {
             model.addAttribute("errormsg", checkUserData);
             return "index";
         } else {
@@ -51,14 +55,23 @@ public class BigBasketController {
 
 
     @GetMapping("getData")
-    public String getNaukriDetails(@RequestParam int id, Model model){
+    public String getNaukriDetails(@RequestParam int id, Model model) {
         System.out.println("ID is : " + id);
         BigBasketDTO dto = bigBasketService.getId(id);
-        if (dto!=null){
-            model.addAttribute("info",dto);
+        if (dto != null) {
+            model.addAttribute("info", dto);
             return "bigbasketDetails";
         }
         return "bigbasketDetails";
+    }
+
+
+    @PostMapping("updateData")
+    public String updateData(BigBasketDTO bigBasketDTO,Model model){
+        bigBasketService.UpdateBigBasketData(bigBasketDTO);
+        List<BigBasketDTO> dto = bigBasketService.getDTO();
+        model.addAttribute("message",dto);
+        return "bigbasket";
     }
 }
 

@@ -14,4 +14,6 @@ public interface BigBasketService {
     BigBasketDTO checkMobileNumber(Long phoneNumber);
 
     BigBasketDTO getId(int id);
+
+    void UpdateBigBasketData(BigBasketDTO bigBasketDTO);
 }

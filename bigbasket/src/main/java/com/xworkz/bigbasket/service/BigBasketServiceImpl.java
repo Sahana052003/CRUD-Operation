@@ -55,8 +55,9 @@ public class BigBasketServiceImpl implements BigBasketService{
                 }
                 return "Failed To Register";
             }
-        }
             return "Email or Phone already exists";
+        }
+            return "Data Not found";
     }
 
 
@@ -110,5 +111,12 @@ public class BigBasketServiceImpl implements BigBasketService{
             return bigBasketDTO;
         }
         return null;
+    }
+
+    @Override
+    public void UpdateBigBasketData(BigBasketDTO bigBasketDTO) {
+        BigBasketEntity bigBasketEntity=new BigBasketEntity();
+        BeanUtils.copyProperties(bigBasketDTO,bigBasketEntity);
+        bigBasketDAO.updateBigBasketDetails(bigBasketEntity);
     }
 }

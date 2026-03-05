@@ -12,4 +12,6 @@ public interface BigBasketDAO {
     BigBasketEntity getDataBasedOnMobileNumber(Long phoneNumber);
 
     BigBasketEntity getDetailsBasedOnId(int id);
+
+    void updateBigBasketDetails(BigBasketEntity bigBasketEntity);
 }

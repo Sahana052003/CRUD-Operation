@@ -101,4 +101,19 @@ public class BigBasketDAOImpl implements BigBasketDAO {
             entityManager.close();
         }
     }
+
+    @Override
+    public void updateBigBasketDetails(BigBasketEntity bigBasketEntity) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try{
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        entityManager.merge(bigBasketEntity);
+        transaction.commit();
+    } catch (Exception e) {
+            System.out.println("Updated Data " + e.getMessage());
+        }finally {
+            entityManager.close();
+        }
+        }
 }
