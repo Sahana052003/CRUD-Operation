@@ -12,4 +12,6 @@ public interface NaukriRepository {
     NaukriEntity getDetailsBasedOnId(int id);
 
     boolean updateNaukriDetails(NaukriEntity naukriEntity);
+
+    void deleteNaukriDetails(String email);
 }

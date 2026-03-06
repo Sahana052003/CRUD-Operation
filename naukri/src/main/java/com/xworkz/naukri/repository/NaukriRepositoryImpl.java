@@ -122,4 +122,21 @@ public class NaukriRepositoryImpl implements NaukriRepository{
             entityManager.close();
         }
     }
+
+    @Override
+    public void deleteNaukriDetails(String email) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try{
+            EntityTransaction transaction = entityManager.getTransaction();
+            transaction.begin();
+            Query query = entityManager.createNamedQuery("deleteEmail");
+            query.setParameter("emailId",email);
+            query.executeUpdate();
+            transaction.commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }finally {
+            entityManager.close();
+        }
+    }
 }

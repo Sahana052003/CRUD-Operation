@@ -71,6 +71,16 @@ public class NaukriController {
         }
         return "naukri";
     }
+
+
+    @GetMapping("deleteData")
+    public String deleteData(@RequestParam String email,Model model){
+
+        naukriService.deleteNaukriData(email);
+        List<NaukriDTO> dto = naukriService.getDTO();
+        model.addAttribute("message",dto);
+        return "naukri";
+    }
 }
 
 

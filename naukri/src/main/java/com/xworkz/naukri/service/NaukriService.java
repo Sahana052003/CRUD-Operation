@@ -17,4 +17,6 @@ public interface NaukriService {
     NaukriDTO getID(int id);
 
     boolean updateNaukriData(NaukriDTO naukriDTO);
+
+    void deleteNaukriData(String email);
 }

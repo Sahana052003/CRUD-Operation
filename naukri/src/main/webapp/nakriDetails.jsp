@@ -66,7 +66,7 @@
         <!-- Email -->
         <div class="mb-3">
             <label>Email</label>
-            <input type="text" class="form-control" id="email" name="email" value="${info.email}" readonly>
+            <input type="text" class="form-control" id="email" name="email" value="${info.email}" >
             <div id="emailError" class="error"></div>
         </div>
 

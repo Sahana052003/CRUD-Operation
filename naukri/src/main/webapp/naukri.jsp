@@ -19,6 +19,8 @@
 <th>MobileNumber</th>
 <th>Gender</th>
 <th>nationality</th>
+<th>Update</th>
+<th>Delete</th>
 </tr>
 
 
@@ -31,6 +33,8 @@
 <td>${singleData.gender}</td>
 <td>${singleData.nationality}</td>
 <td><a href="getData?id=${singleData.id}">UPDATE</a></td>
+<td><a href="deleteData?email=${singleData.email}">DELETE</a></td>
+
 </tr>
 </c:forEach>
 </table>

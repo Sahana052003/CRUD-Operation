@@ -17,7 +17,7 @@ import javax.persistence.*;
 @NamedQuery(name="readEmail",query = "select entity from NaukriEntity entity where entity.email=:emailId")
 @NamedQuery(name = "readmobile",query = "Select e from NaukriEntity e where e.mobileNumber=:phoneNumber")
 
-
+@NamedQuery(name = "deleteEmail",query = "delete from NaukriEntity ent where ent.email=:emailId")
 public class NaukriEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

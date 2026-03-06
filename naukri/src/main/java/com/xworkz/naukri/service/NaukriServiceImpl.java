@@ -124,4 +124,9 @@ public class NaukriServiceImpl implements NaukriService {
         return naukriDetails;
 
     }
+
+    @Override
+    public void deleteNaukriData(String email) {
+        naukriRepository.deleteNaukriDetails(email);
+    }
 }
