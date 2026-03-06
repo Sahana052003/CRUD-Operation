@@ -16,4 +16,6 @@ public interface BigBasketService {
     BigBasketDTO getId(int id);
 
     void UpdateBigBasketData(BigBasketDTO bigBasketDTO);
+
+    void deleteBigBasketData(String email);
 }

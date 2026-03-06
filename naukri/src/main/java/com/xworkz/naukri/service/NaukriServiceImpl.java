@@ -120,6 +120,8 @@ public class NaukriServiceImpl implements NaukriService {
         NaukriEntity entity = new NaukriEntity();
         BeanUtils.copyProperties(naukriDTO, entity);
 
-        return naukriRepository.updateNaukriDetails(entity);
+        boolean naukriDetails = naukriRepository.updateNaukriDetails(entity);
+        return naukriDetails;
+
     }
 }

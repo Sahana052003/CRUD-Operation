@@ -14,4 +14,6 @@ public interface BigBasketDAO {
     BigBasketEntity getDetailsBasedOnId(int id);
 
     void updateBigBasketDetails(BigBasketEntity bigBasketEntity);
+
+    void deleteBigBasketDetails(String email);
 }

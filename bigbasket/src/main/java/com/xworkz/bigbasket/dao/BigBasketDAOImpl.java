@@ -116,4 +116,21 @@ public class BigBasketDAOImpl implements BigBasketDAO {
             entityManager.close();
         }
         }
+
+    @Override
+    public void deleteBigBasketDetails(String email) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            EntityTransaction transaction = entityManager.getTransaction();
+            transaction.begin();
+            Query query = entityManager.createNamedQuery("deleteEmail");
+            query.setParameter("emailId",email);
+            query.executeUpdate();
+            transaction.commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }finally {
+            entityManager.close();
+        }
+    }
 }

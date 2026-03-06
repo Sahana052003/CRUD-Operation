@@ -16,7 +16,7 @@ import javax.persistence.*;
 @NamedQuery(name="readEmail",query = "select entity from BigBasketEntity entity where entity.email=:gmail")
 @NamedQuery(name = "readmobile",query = "Select e from BigBasketEntity e where e.phoneNumber=:mobileNumber")
 
-
+@NamedQuery(name = "deleteEmail",query = "delete from BigBasketEntity entity where entity.email=:emailId")
 public class BigBasketEntity {
 
     @Id

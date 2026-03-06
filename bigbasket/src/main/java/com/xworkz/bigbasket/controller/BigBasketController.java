@@ -73,5 +73,13 @@ public class BigBasketController {
         model.addAttribute("message",dto);
         return "bigbasket";
     }
+
+    @GetMapping("deleteData")
+    public String deleteData(@RequestParam String email,Model model){
+            bigBasketService.deleteBigBasketData(email);
+        List<BigBasketDTO> dto = bigBasketService.getDTO();
+        model.addAttribute("message",dto);
+        return "bigbasket";
+    }
 }
 

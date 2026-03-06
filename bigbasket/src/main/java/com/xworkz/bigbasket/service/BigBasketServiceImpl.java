@@ -119,4 +119,9 @@ public class BigBasketServiceImpl implements BigBasketService{
         BeanUtils.copyProperties(bigBasketDTO,bigBasketEntity);
         bigBasketDAO.updateBigBasketDetails(bigBasketEntity);
     }
+
+    @Override
+    public void deleteBigBasketData(String email) {
+        bigBasketDAO.deleteBigBasketDetails(email);
+    }
 }
